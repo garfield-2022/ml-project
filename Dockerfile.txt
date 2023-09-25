@@ -1,0 +1,17 @@
+#Mention the base image 
+FROM continuumio/anaconda3
+
+#Copy the current folder structure and content to docker folder
+COPY . /Users/yingfan/Desktop/Ying/MLOps/app
+
+#Expose the port within docker 
+EXPOSE 5000
+
+#Set current working directory
+WORKDIR /Users/yingfan/Desktop/Ying/MLOps/app
+
+#Install the required libraries
+RUN pip install -r requirements.txt
+
+#container start up command
+CMD python api.py
